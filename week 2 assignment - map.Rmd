@@ -1,0 +1,25 @@
+---
+title: "week 2 assignment"
+author: "Victor Dong"
+date: "2017年7月27日"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(leaflet)
+myhouse <- data.frame(
+  lat = c(40.2973166, 40.3288851, 40.2906617),
+  lng = c(116.5929798, 116.6206598, 116.5469683))
+familysite <- c("Uncle",
+                  "Grandpa",
+                  "My house"
+                  )
+myhouse %>% 
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(clusterOptions = markerClusterOptions(),popup = familysite)
+```
